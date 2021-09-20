@@ -1,0 +1,637 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <title>Application</title>
+  </head>
+  <body>
+    <div class="container">
+      <section class="store_list_container">
+        <h2 class="section_title sticky">stores list</h2>
+        <header class="header_store_list">
+          <form class="search_store_from_list" id="search_store_list">
+            <input
+              class="search_text"
+              type="text"
+              name="search"
+              placeholder="Search the store"
+            />
+            <button
+              id="searchStoreInStoreList"
+              class="search_button"
+              type="submit"
+            >
+              <img class="search_button_img" src="img/search.png" alt="" />
+            </button>
+
+            <button
+              id="searchStoreInStoreListDefault"
+              class="search_button_default"
+              type="submit"
+            >
+              <img
+                class="search_button_default_img"
+                src="img/cross.png"
+                alt=""
+              />
+            </button>
+          </form>
+
+          <div class="header_btns">
+            <button class="store_list_btn">up</button>
+            <button class="store_list_btn">fix</button>
+          </div>
+        </header>
+        <div
+          class="message_in_list_container"
+          id="message_stores_container"
+        ></div>
+        <ul class="main_store_list" id="store_list_container">
+          <!-- template id="store_tpl" to display store in list -->
+        </ul>
+        <footer class="footer">
+          <button class="footer_btn" title="add store" id="openDialogAddStore">
+            <img src="img/add.png" alt="add" />
+            <a href="#openDialogCreateStore">Create</a>
+          </button>
+        </footer>
+      </section>
+
+      <section class="store_product_container">
+        <h1 class="section_title sticky">store details</h1>
+        <header
+          class="header_store_product"
+          id="store_details_header_container"
+        >
+          <!-- template id="details_store_tpl" for display details in header about the store -->
+        </header>
+        <section
+          class="store_product_icons"
+          id="store_details_status_container"
+        >
+          <div
+            class="product_icon icon_number active_status_products"
+            id="all_count_click"
+          >
+            <span class="all_count" id="all_count">100</span>
+            <span>All</span>
+          </div>
+          <hr />
+          <div class="product_icon" id="ok_status">
+            <span class="ok_status" id="count_ok_products">50</span>
+            <img src="img/green.png" alt="green-icon" />
+            <p>Ok</p>
+          </div>
+          <div class="product_icon" id="storage_status">
+            <span class="middle_status" id="count_storage_products">20</span>
+            <img src="img/yellow.png" alt="yellow-icon" />
+            <p>Storage</p>
+          </div>
+          <div class="product_icon" id="out_of_stock_status">
+            <span class="bad_status" id="count_out_products">30</span>
+            <img src="img/red.png" alt="red-icon" />
+            <p>Out of stock</p>
+          </div>
+        </section>
+        <div
+          class="message_in_details_container"
+          id="message_details_container"
+        ></div>
+        <main class="main_store_product">
+          <div class="header_table">
+            <h2 class="title_products_table">Products</h2>
+            <form
+              class="search_products_in_store"
+              id="search_products_in_store"
+            >
+              <input
+                class="search_text"
+                type="text"
+                name="search"
+                placeholder="Search the product"
+              />
+              <button
+                class="search_button"
+                type="submit"
+                id="searchProductsInStore"
+              >
+                <img class="search_button_img" src="img/search.png" alt="" />
+              </button>
+
+              <button
+                class="search_button_default"
+                type="submit"
+                id="defaultSearchProductsInStore"
+              >
+                <img
+                  class="search_button_default_img"
+                  src="img/cross.png"
+                  alt=""
+                />
+              </button>
+            </form>
+          </div>
+          <table class="table_product_info sticky_title">
+            <tr>
+              <th class="table_name">
+                <button class="sort_products_button" id="sort_name">
+                  <img
+                    class="sort_products_button_icon"
+                    src="img/sort.png"
+                    alt="sort button"
+                  />
+                </button>
+                Name
+              </th>
+              <th class="table_price">
+                Price
+                <button class="sort_products_button" id="sort_price">
+                  <img
+                    class="sort_products_button_icon"
+                    src="img/sort.png"
+                    alt="sort button"
+                  />
+                </button>
+              </th>
+              <th class="table_spaces">
+                <button class="sort_products_button" id="sort_spaces">
+                  <img
+                    class="sort_products_button_icon"
+                    src="img/sort.png"
+                    alt="sort button"
+                  /></button
+                >Spaces
+              </th>
+              <th class="table_info">
+                <button class="sort_products_button" id="sort_supplierInfo">
+                  <img
+                    class="sort_products_button_icon"
+                    src="img/sort.png"
+                    alt="sort button"
+                  /></button
+                >SupplierInfo
+              </th>
+              <th class="table_country">
+                <button class="sort_products_button" id="sort_country">
+                  <img
+                    class="sort_products_button_icon"
+                    src="img/sort.png"
+                    alt="sort button"
+                  /></button
+                >Country of origin
+              </th>
+              <th class="table_company">
+                <button class="sort_products_button" id="sort_company">
+                  <img
+                    class="sort_products_button_icon"
+                    src="img/sort.png"
+                    alt="sort button"
+                  /></button
+                >Prod.company
+              </th>
+              <th class="table_rating">
+                <button class="sort_products_button" id="sort_raiting">
+                  <img
+                    class="sort_products_button_icon"
+                    src="img/sort.png"
+                    alt="sort button"
+                  /></button
+                >Rating
+              </th>
+              <th class="table_buttons_edit_product"></th>
+            </tr>
+          </table>
+
+          <table
+            class="table_product_info table_first_item"
+            id="store_details_products_container"
+          >
+            <!-- template id="products_table_tpl" for draw table with products from the store -->
+          </table>
+        </main>
+        <footer class="footer footer_store_product">
+          <button class="footer_btn" title="add product" id="addNewProduct">
+            <img src="img/add.png" alt="create" />
+            Create
+          </button>
+          <button
+            class="footer_btn footer_btn_delete"
+            title="delete store"
+            id="deleteSelectedStore"
+          >
+            <img src="img/delete.png" alt="delete" />
+            Delete
+          </button>
+        </footer>
+      </section>
+    </div>
+    <div id="openDialogCreateStore" class="modalDialog">
+      <form class="form_create_store" id="form_create_store">
+        <p class="title_of_add_store_form">Create new store</p>
+
+        <div class="input_container">
+          <label for="addStoreName" class="input_wrapper">
+            Store name:
+            <input
+              class="form_create_store_field"
+              type="text"
+              name="Name"
+              id="addStoreName"
+              placeholder="Enter name of store"
+          /></label>
+        </div>
+
+        <div class="input_container">
+          <label for="addEmail" class="input_wrapper"
+            >Email:
+            <input
+              class="form_create_store_field"
+              type="email"
+              name="Email"
+              id="addEmail"
+              placeholder="Enter email"
+          /></label>
+        </div>
+
+        <div class="input_container">
+          <label for="addPhoneNumber" class="input_wrapper"
+            >Phone number:
+            <input
+              class="form_create_store_field"
+              type="phone"
+              id="addPhoneNumber"
+              name="PhoneNumber"
+              placeholder="Enter phone number"
+          /></label>
+        </div>
+
+        <div class="input_container">
+          <label for="addAddress" class="input_wrapper"
+            >Address:
+            <input
+              class="form_create_store_field"
+              type="text"
+              id="addAddress"
+              name="Address"
+              placeholder="Enter address"
+          /></label>
+        </div>
+
+        <div class="input_container">
+          <label for="addDate" class="input_wrapper"
+            >Established date:
+            <input
+              class="form_create_store_field"
+              type="date"
+              id="addDate"
+              name="Established"
+              placeholder="Enter established name"
+          /></label>
+        </div>
+
+        <div class="input_container">
+          <label for="addArea" class="input_wrapper"
+            >Floor area, sqm:
+            <input
+              class="form_create_store_field"
+              type="number"
+              id="addDate"
+              name="FloorArea"
+              placeholder="Enter floor area"
+          /></label>
+        </div>
+
+        <div class="confirm_buttons_container">
+          <button
+            class="confirm_create_button"
+            title="create store"
+            id="confirmToCreateStore"
+          >
+            Create
+          </button>
+          <button class="confirm_cancel_button" id="close_dialog_create_store">
+            <a href="#closeDialogCreateStore" title="close">Cancel</a>
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <div id="openDialogCreateProduct" class="modalDialog">
+      <form class="form_create_product" id="form_create_product">
+        <p class="title_of_add_product_form">Add new product</p>
+
+        <div class="input_container">
+          <label for="addProductName" class="input_wrapper">
+            Store name:
+            <input
+              class="form_create_product_field"
+              type="text"
+              name="Name"
+              id="addProductName"
+              placeholder="Enter name of store"
+          /></label>
+        </div>
+
+        <div class="input_container">
+          <label for="addPrice" class="input_wrapper"
+            >Price:
+            <input
+              class="form_create_product_field"
+              type="number"
+              name="Price"
+              id="addPrice"
+              placeholder="Enter price, USD"
+          /></label>
+        </div>
+
+        <div class="input_container">
+          <label for="addSpecs" class="input_wrapper"
+            >Specs:
+            <input
+              class="form_create_product_field"
+              type="textarea"
+              id="addSpecs"
+              name="Specs"
+              placeholder="Enter product specs"
+          /></label>
+        </div>
+
+        <div class="input_container">
+          <label for="addRaiting" class="input_wrapper"
+            >Raiting:
+            <input
+              class="form_create_product_field"
+              type="number"
+              id="addRaiting"
+              name="Raiting"
+              placeholder="Enter raiting 1..5"
+          /></label>
+        </div>
+
+        <div class="input_container">
+          <label for="addSupplierInfo" class="input_wrapper"
+            >Supplier Info:
+            <input
+              class="form_create_product_field"
+              type="textarea"
+              id="addSupplierInfo"
+              name="SupplierInfo"
+              placeholder="Enter supplier info"
+          /></label>
+        </div>
+
+        <div class="input_container">
+          <label for="addMadeIn" class="input_wrapper"
+            >Made in:
+            <input
+              class="form_create_product_field"
+              type="text"
+              id="addMadeIn"
+              name="MadeIn"
+              placeholder="Enter origin country"
+          /></label>
+        </div>
+
+        <div class="input_container">
+          <label for="addCompany" class="input_wrapper"
+            >Production company name:
+            <input
+              class="form_create_product_field"
+              type="text"
+              id="addCompany"
+              name="ProductionCompanyName"
+              placeholder="Enter manufacturer name"
+          /></label>
+        </div>
+
+        <div class="input_container">
+          <label for="addStatus" class="input_wrapper"
+            >Product status:
+            <select
+              class="form_create_product_field"
+              name="Status"
+              id="setProductStatusForm"
+            >
+              <option disabled>Choose status</option>
+              <option value="1">Ok</option>
+              <option value="2">Storage</option>
+              <option value="3">Out of stock</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="confirm_buttons_container">
+          <button
+            class="confirm_create_button"
+            title="add product"
+            id="confirmToAddProduct"
+          >
+            Add
+          </button>
+          <button
+            class="confirm_cancel_button"
+            id="close_dialog_create_product"
+          >
+            <a href="#closeDialogCreateProduct" title="close">Cancel</a>
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <div id="openDialogEditProduct" class="modalDialog">
+      <form class="form_create_product" id="form_edit_product">
+        <p class="title_of_add_product_form">Edit product</p>
+
+        <div class="input_container">
+          <label for="editProductName" class="input_wrapper">
+            Store name:
+            <input
+              class="form_create_product_field"
+              type="text"
+              name="Name"
+              id="editProductName"
+              placeholder="Enter name of store"
+          /></label>
+        </div>
+
+        <div class="input_container">
+          <label for="editPrice" class="input_wrapper"
+            >Price:
+            <input
+              class="form_create_product_field"
+              type="number"
+              name="Price"
+              id="editPrice"
+              placeholder="Enter price, USD"
+          /></label>
+        </div>
+
+        <div class="input_container">
+          <label for="editSpecs" class="input_wrapper"
+            >Specs:
+            <input
+              class="form_create_product_field"
+              type="textarea"
+              id="editSpecs"
+              name="Specs"
+              placeholder="Enter product specs"
+          /></label>
+        </div>
+
+        <div class="input_container">
+          <label for="editRaiting" class="input_wrapper"
+            >Raiting:
+            <input
+              class="form_create_product_field"
+              type="number"
+              id="editRaiting"
+              name="Raiting"
+              placeholder="Enter raiting 1..5"
+          /></label>
+        </div>
+
+        <div class="input_container">
+          <label for="editSupplierInfo" class="input_wrapper"
+            >Supplier Info:
+            <input
+              class="form_create_product_field"
+              type="textarea"
+              id="editSupplierInfo"
+              name="SupplierInfo"
+              placeholder="Enter supplier info"
+          /></label>
+        </div>
+
+        <div class="input_container">
+          <label for="editMadeIn" class="input_wrapper"
+            >Made in:
+            <input
+              class="form_create_product_field"
+              type="text"
+              id="editMadeIn"
+              name="MadeIn"
+              placeholder="Enter origin country"
+          /></label>
+        </div>
+
+        <div class="input_container">
+          <label for="editMadeIn" class="input_wrapper"
+            >Production company name:
+            <input
+              class="form_create_product_field"
+              type="text"
+              id="editMadeIn"
+              name="ProductionCompanyName"
+              placeholder="Enter manufacturer name"
+          /></label>
+        </div>
+
+        <div class="input_container">
+          <label for="ProductStatusForm" class="input_wrapper"
+            >Product status:
+            <select
+              class="form_create_product_field"
+              name="Status"
+              id="ProductStatusForm"
+            >
+              <option disabled>Choose status</option>
+              <option value="1">Ok</option>
+              <option value="2">Storage</option>
+              <option value="3">Out of stock</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="confirm_buttons_container">
+          <button
+            class="confirm_create_button"
+            title="add product"
+            id="confirmToEditProduct"
+          >
+            Edit
+          </button>
+          <button
+            class="confirm_cancel_button"
+            id="close_dialog_edit_product"
+          >
+            <a href="#closeDialogCreateProduct" title="close">Cancel</a>
+          </button>
+        </div>
+      </form>
+    </div>
+  </body>
+
+  <template id="store_tpl">
+    <li class="main_store_list_info" id="">
+      <h2 class="info_title_shop">Collin's</h2>
+      <p class="info_number">
+        <span class="js-square">987</span>
+        <span>s.q.m</span>
+      </p>
+      <p class="info_text">Necessitatibus voluptatum ut.</p>
+    </li>
+  </template>
+  <template id="details_store_tpl">
+    <div class="header_store_product_info">
+      <div>
+        <p>
+          <b>Email: </b><span class="store_mail">ZhenyaPintusova@mail.ru</span>
+        </p>
+        <p>
+          <b>Phone number: </b
+          ><span class="store_phone">+375-44-345-54-12</span>
+        </p>
+        <p>
+          <b>Address: </b><span class="store_address">Minsk, Lenina str</span>
+        </p>
+      </div>
+      <div>
+        <p>
+          <b>Established date: </b><span class="store_date">April, 2021</span>
+        </p>
+        <p><b>floor area: </b><span class="store_area">8082</span></p>
+      </div>
+    </div>
+    <div class="header_btns">
+      <button class="store_list_btn">up</button>
+      <button class="store_list_btn">fix</button>
+    </div>
+  </template>
+  <template id="products_table_tpl">
+    <tr>
+      <td>
+        <p><b class="js_product_name">Ergonimict chicken</b></p>
+      </td>
+      <td><b class="js_product_price">20 900</b> usd</td>
+      <td class="js_product_spaces">Lorem ipsum dolor sit amet consectetur</td>
+      <td class="js_product_info">Fugiat unde ea est aliquid.</td>
+      <td class="js_product_country">USA</td>
+      <td class="js_product_company">Off Group</td>
+      <td>
+        <div class="rating_desktop"></div>
+        <div class="rating_mobile">4.3</div>
+      </td>
+      <td class="table_buttons_edit_product">
+        <button class="edit_product" title="edit product">
+          <img
+            class="edit_product_icon"
+            src="img/edit.png"
+            alt="edit button"
+          /></button
+        ><button class="delete_product" title="delete product">
+          <img class="delete_product_icon" src="img/cross.png" alt="" />
+        </button>
+      </td>
+    </tr>
+  </template>
+  <script src="scripts/model_.js"></script>
+  <script src="scripts/view_.js"></script>
+  <script src="scripts/controller_.js"></script>
+</html>
